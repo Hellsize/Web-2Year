@@ -5,9 +5,16 @@
 @light-bg:#EDEFF5;
 @light-text: #9CA5AF;
 @text: #1e2022;
+@font-family: 'Roboto', sans-serif;
 body{
     margin: 0;
     padding: 0;
+width: 100%;
+    overflow-x: hidden;
+   background-image: url(/Classroom-copy/Africa/Static/Images/bg.jpg);
+     background-size: cover;
+     color: @light;
+     
 }
 
 header{
@@ -20,10 +27,37 @@ align-items: center;
 padding: 0px 4%;
 box-sizing: border-box;
 
+
 .logo{
     flex-basis: 40%;
 
 }
+.sidebar{
+   display: flex;
+   width: 320px;
+   justify-content: space-between;
+   .search{
+       input{
+display: none;
+
+       }
+       button{
+           background-color: @light-bg;
+           width: 30px;
+           height: 30px;
+           background-image:url(/Classroom-copy/Africa/Static/Images/search.png) ;
+       }
+   }
+
+
+}
+}
+.side-menu{
+    button{
+        background-color: @light-bg;
+        width: 30px;
+        height: 30px;
+    }
 }
 .horiz-menu{
     display: flex;
@@ -41,8 +75,16 @@ main{
 display:flex;
 align-items: center;
 height: calc(100vh - 120px);
-.article{
-    flex-basis: 40%;
+article{
+width: 420px;
+margin-right: 80px;
+   button{
+       background-color: @primary;
+       border-radius: 15px;
+       width: 100px;
+       height: 40px;
+       color: @light;
+   }
 
 }
 .gallery-cards{
@@ -50,15 +92,62 @@ height: calc(100vh - 120px);
     .gallery{
         height: 80%;
     display: flex;
+    margin-bottom: 60px;
+
     .card{
-        margin-right: 60px;
+        margin-right: 50px;
+        height: 100%;
+        width: 280px;
+        overflow:hidden;
+        
     }
-    .csontrols{
-        width: 100%;
+    .controls{
+        width: 700px;
         display: flex;
         justify-content: space-between;
 
+        .card-count{
+            display: flex;
+            align-items: center;
+            .line{
+                height: 1px;
+                width: 20px;
+                background-color: @text;
+                margin: 0px 6px;
+            }
+        }
     }
     }
+    .card:not(:first-child){
+transform: scale(0.95);
+
+    }
+
 }
+}
+
+.card-photo{
+    background-color: green;
+height: 80%;
+border-radius: 12px;
+position: relative;
+button{
+    background-color: @light;
+    width: 30px;
+    height: 30px;
+}
+
+img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    background-size:cover;}
+}
+.fav{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+.btn-rounded{
+    border-radius: 100%;
 }
