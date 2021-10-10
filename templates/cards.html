@@ -1,0 +1,9 @@
+{% extends "index.html" %}
+{% block cards %}
+<div class="row justify-content-center">
+    {% for i in cards %}
+<div class="col-12 col-md-3"> 
+    {{ i }}
+</div>
+{% endfor %}
+{% endblock %}
