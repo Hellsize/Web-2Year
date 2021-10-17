@@ -1,0 +1,126 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  background-image: url(/Classroom-copy/Africa/Static/Images/bg.jpg);
+  background-size: cover;
+  color: #FFFFFF;
+}
+header {
+  width: 100%;
+  height: 120px;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 4%;
+  box-sizing: border-box;
+}
+header .logo {
+  flex-basis: 40%;
+}
+header .sidebar {
+  display: flex;
+  width: 320px;
+  justify-content: space-between;
+}
+header .sidebar .search input {
+  display: none;
+}
+header .sidebar .search button {
+  background-color: #EDEFF5;
+  width: 30px;
+  height: 30px;
+  background-image: url(/Classroom-copy/Africa/Static/Images/search.png);
+}
+.side-menu button {
+  background-color: #EDEFF5;
+  width: 30px;
+  height: 30px;
+}
+.horiz-menu {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+.horiz-menu > li:not(:last-child) {
+  margin-right: 26px;
+}
+main {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  top: 120px;
+  display: flex;
+  align-items: center;
+  height: calc(100vh - 120px);
+}
+main article {
+  width: 420px;
+  margin-right: 80px;
+}
+main article button {
+  background-color: #603232;
+  border-radius: 15px;
+  width: 100px;
+  height: 40px;
+  color: #FFFFFF;
+}
+main .gallery-cards {
+  height: 100%;
+}
+main .gallery-cards .gallery {
+  height: 80%;
+  display: flex;
+  margin-bottom: 60px;
+}
+main .gallery-cards .gallery .card {
+  margin-right: 50px;
+  height: 100%;
+  width: 280px;
+  overflow: hidden;
+}
+main .gallery-cards .gallery .controls {
+  width: 700px;
+  display: flex;
+  justify-content: space-between;
+}
+main .gallery-cards .gallery .controls .card-count {
+  display: flex;
+  align-items: center;
+}
+main .gallery-cards .gallery .controls .card-count .line {
+  height: 1px;
+  width: 20px;
+  background-color: #1e2022;
+  margin: 0px 6px;
+}
+main .gallery-cards .card:not(:first-child) {
+  transform: scale(0.95);
+}
+.card-photo {
+  background-color: green;
+  height: 80%;
+  border-radius: 12px;
+  position: relative;
+}
+.card-photo button {
+  background-color: #FFFFFF;
+  width: 30px;
+  height: 30px;
+}
+.card-photo img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+.fav {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+.btn-rounded {
+  border-radius: 100%;
+}
