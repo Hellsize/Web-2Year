@@ -4,7 +4,7 @@ const app = express();
 
 app.set("view engine", 'hbs'); // Поставить движок шаблонизации
 app.set("views", "./templates"); // размещение шаблонов
-app.use(express.static(__dirname + '/static'));
+app.use(express.static(__dirname + "/templates/static"))
 hbs.registerPartials(__dirname + "/templates/partials")
 users = {
     "1": {
@@ -47,7 +47,7 @@ users = {
 
 
 };
-users_inventory = {
+items = {
     "1": {
         "enam": "bean",
         "cost": "125$",
@@ -84,33 +84,6 @@ users_inventory = {
 
 
 }
-users_list = {
-
-    "name": "Mr.Beb",
-    "lvl": "39 lvl",
-
-
-
-    "name": "gtx1070",
-    "lvl": "25 lvl",
-
-
-
-    "name": "admin",
-    "lvl": "99 lvl",
-
-
-
-    "name": "user534221",
-    "lvl": "1 lvl",
-
-
-
-    "name": "ainiboy",
-    "lvl": "53 lvl",
-
-
-};
 
 
 app.get("/", function(req, res) {
@@ -133,15 +106,22 @@ app.get("/user/:id/inventory", function(req, res) {
 
     let id = req.params.id;
     //    res.send(users[id].name);
-    res.render("inventory.hbs", users_inventory[id]);
+    res.render("inventory.hbs", users[id]);
+
+});
+
+app.get("/item/:id", function(req, res) {
+
+    let id = req.params.id;
+    //    res.send(users[id].name);
+    res.render("item.hbs", items[id]);
 
 });
 
 
 app.get("/users", function(req, res) {
 
-    while () {
-    }
+    while (n < 0) {}
     //    res.send(users[id].name);
     res.render("users.hbs", users_list);
 
