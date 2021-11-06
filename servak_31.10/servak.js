@@ -4,7 +4,7 @@ const app = express();
 
 app.set("view engine", 'hbs'); // Поставить движок шаблонизации
 app.set("views", "./templates"); // размещение шаблонов
-app.use(express.static('static'));
+app.use(express.static(__dirname + '/static'));
 hbs.registerPartials(__dirname + "/templates/partials")
 users = {
     "1": {
@@ -19,7 +19,7 @@ users = {
         "lvl": "25 lvl",
         "inventory": "10 items",
         "money": "300 $",
-        "avatar": "gtx1070.jpg"
+        "avatar": "gtx1070_avatar.jpg"
     },
     "3": {
         "name": "admin",
@@ -52,32 +52,32 @@ users_inventory = {
         "enam": "bean",
         "cost": "125$",
         "description": "Bean its very Bean",
-        "image": "item.png",
+        "image": "bean_item.jpg",
 
     },
     "2": {
         "enam": "gtx1070",
         "cost": "700$",
         "description": "its you videocard",
-        "image": "item.png",
+        "image": "gtx1070.jpg",
     },
     "3": {
         "enam": "SERVER",
         "cost": "999$",
         "description": "You server",
-        "image": "item.png",
+        "image": "server.jpg",
     },
     "4": {
         "enam": "Penny",
         "cost": "1$",
         "description": "one bucks",
-        "image": "item.png",
+        "image": "penny.png",
     },
     "5": {
         "enam": "pivo",
         "cost": "300$",
         "description": "Pivo",
-        "image": "item.png",
+        "image": "baltika.jpg",
     },
 
 
