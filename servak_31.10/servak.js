@@ -140,7 +140,8 @@ app.get("/user/:id/inventory", function(req, res) {
 
 app.get("/users", function(req, res) {
 
-
+    while () {
+    }
     //    res.send(users[id].name);
     res.render("users.hbs", users_list);
 
