@@ -23,7 +23,7 @@ gover.then(function(result){
 
 }).then(function(result){
     a-=a*0.5;
-    console.log('Уехало в маями ${a}')
+    console.log(`Уехало в маями ${a}`)
 });
 console.log(a)
 
