@@ -1,3 +1,4 @@
+const { response } = require("express");
 const express = require("express")
 const hbs = require("hbs");
 const app = express();
@@ -49,41 +50,40 @@ users = {
 };
 items = {
     "1": {
-        "enam": "bean",
+        "name": "bean",
         "cost": "125$",
         "description": "Bean its very Bean",
         "image": "bean_item.jpg",
 
     },
     "2": {
-        "enam": "gtx1070",
+        "name": "gtx1070",
         "cost": "700$",
         "description": "its you videocard",
         "image": "gtx1070.jpg",
     },
     "3": {
-        "enam": "SERVER",
+        "name": "SERVER",
         "cost": "999$",
         "description": "You server",
         "image": "server.jpg",
     },
     "4": {
-        "enam": "Penny",
+        "name": "Penny",
         "cost": "1$",
         "description": "one bucks",
-        "image": "penny.png",
+        "image": "penny.jpg",
     },
     "5": {
-        "enam": "pivo",
+        "name": "pivo",
         "cost": "300$",
         "description": "Pivo",
         "image": "baltika.jpg",
     },
 
-
-
-
 }
+
+
 
 
 app.get("/", function(req, res) {
@@ -120,13 +120,50 @@ app.get("/item/:id", function(req, res) {
 
 
 app.get("/users", function(req, res) {
-
-    while (n < 0) {}
+    switch ("name") {
+        case "Mr.Beb":
+          response.send("Mr.Beb");
+          break;
+        case "gtx1070":
+            response.send("gtx1070");
+          break;
+        case "admin":
+            response.send("admin");
+          break;
+        case "user534221":
+            response.send("user534221");
+          break;
+        case "ainiboy":
+            response.send("ainiboy");
+          break;
+      }
     //    res.send(users[id].name);
-    res.render("users.hbs", users_list);
+    res.render("users.hbs", users);
 
 });
 
+app.get("/items", function(req, res) {
+    switch ("name") {
+        case "bean":
+          response.send("bean");
+          break;
+        case "gtx1070":
+            response.send("gtx1070");
+          break;
+        case "SERVER":
+            response.send("SERVER");
+          break;
+        case "Penny":
+            response.send("Penny");
+          break;
+        case "pivo":
+            response.send("pivo");
+          break;
+      }
+    //    res.send(users[id].name);
+    res.render("items.hbs", items);
+
+});
 
 app.listen(3000, function() {
     console.log("server is on")
