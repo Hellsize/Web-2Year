@@ -1,18 +1,33 @@
 const express = require("express")
 const hbs = require("hbs");
 const app = express();
-
+session = require('express-session'),
+  redisStorage = require('connect-redis')(session),
+  redis = require('redis'),
+  client = redis.createClient()
 app.set("view engine", 'hbs') // Поставить движок шаблонизации
 app.set("views", "./templates") // размещение шаблонов
 app.use(express.static('templates'));
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(
+    session({
+      store: new redisStorage({
+        host: host,
+        port: 3000,
+        client: client,
+      }),
+      secret: 'you secret key',
+      saveUninitialized: true,
+    })
+  )
 
+const urlencodedParser = express.urlencoded({ extended: true });
 
-const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: true }));
-
-
+app.post("/server", urlencodedParser, function(req, res) {
+    data = req.body
+    res.send(`${req.body.label_game} ${req.body.date}`);
+    console.log(data)
+});
 
 app.get("/", function(request, response) {
     response.render(__dirname + "/templates/index.hbs")
@@ -23,7 +38,7 @@ app.get("/", function(request, response) {
 
 app.get("/login", function(request, response) {
     response.render(__dirname + "/templates/registr.hbs",)
-    res.render(__dirname + "/templates/registr.hbs", { name: req.body.name });
+   
 
 });
 
@@ -49,7 +64,7 @@ app.get("/game", function(request, response) {
    
     response.render(__dirname + "/templates/infogame.hbs",)
 
-    response.render('id: ' + req.query.id,);
+    
 });
 
 
