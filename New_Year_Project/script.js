@@ -12,15 +12,12 @@ loginButton.onclick = function(req, res) {
 
 }
 
-function makeUrl() {
-    let text = "";
-    let possible = "abcdefghijklmnopqrstuvwxyz";
-
-    for (let i = 0; i < 5; i++)
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-    return text;
+function randomString(i) {
+    let rnd = "";
+    while (rnd.length<i)
+    rnd += Math.random().toString(36).substring(0,i)
 }
+randomString(36)
 
 const create_game = document.getElementById("game")
 create_game.addEventListener('click', event => {
@@ -43,4 +40,13 @@ user.addEventListener('click', event => {
         acc[f.name] = f.value
         return acc
     }, {}))
+});
+
+const login = document.getElementById("login")
+login.addEventListener('click', event => {
+    JSON.stringify($(form).serializeArray().reduce((acc, f) => {
+        acc[f.name] = f.value
+        return acc
+    }, {}))
+    console.log(login)
 });
