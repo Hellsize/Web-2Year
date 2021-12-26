@@ -66,7 +66,8 @@ app.get("/game/invite", function(request, response) {
 app.get("/game", function(request, response) {
 
     response.render(__dirname + "/templates/infogame.hbs")
-    let name = JSON.parse(users.name)
+
+    console.log
 });
 
 
