@@ -2,6 +2,7 @@ const express = require("express"),
     app = express(),
     session = require('express-session')
 const hbs = require("hbs");
+<<<<<<< HEAD
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
@@ -16,6 +17,30 @@ app.set("view engine", 'hbs') // Поставить движок шаблони�
 app.set("views", "./templates") // размещение шаблонов
 app.use(express.static('templates'));
 
+=======
+const app = express();
+session = require('express-session'),
+  redisStorage = require('connect-redis')(session),
+  redis = require('redis'),
+  client = redis.createClient()
+app.set("view engine", 'hbs') // Поставить движок шаблонизации
+app.set("views", "./templates") // размещение шаблонов
+app.use(express.static('templates'));
+app.use(bodyParser.json())
+app.use(
+    session({
+      store: new redisStorage({
+        host: host,
+        port: 3000,
+        client: client,
+      }),
+      secret: 'you secret key',
+      saveUninitialized: true,
+    })
+  )
+
+const urlencodedParser = express.urlencoded({ extended: true });
+>>>>>>> 5655adf32f80401ccc6f0e1066a0d938e82e3bba
 
 app.post("/server", urlencodedParser, function(req, res) {
     data = req.body
@@ -31,9 +56,14 @@ app.get("/", function(request, response) {
 
 
 app.get("/login", function(request, response) {
+<<<<<<< HEAD
     response.render(__dirname + "/templates/registr.hbs", )
     req.session.showAd = req.body.showAd
     res.sendStatus(200)
+=======
+    response.render(__dirname + "/templates/registr.hbs",)
+   
+>>>>>>> 5655adf32f80401ccc6f0e1066a0d938e82e3bba
 
 });
 
@@ -56,10 +86,10 @@ app.get("/game/invite", function(request, response) {
 });
 
 app.get("/game", function(request, response) {
+   
+    response.render(__dirname + "/templates/infogame.hbs",)
 
-    response.render(__dirname + "/templates/infogame.hbs")
-
-    console.log
+    
 });
 
 app.listen(3000, function() {

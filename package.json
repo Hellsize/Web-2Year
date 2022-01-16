@@ -1,5 +1,6 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "connect": "^3.7.0",
     "crypto-js": "^4.1.1",
     "express": "^4.17.2",
@@ -10,6 +11,16 @@
     "passport-local": "^1.0.0",
     "redis": "^4.0.2",
     "redis-session": "^0.1.0",
+=======
+    "connect-redis": "^6.0.0",
+    "crypto-js": "^4.1.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "hbs": "^4.1.2",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
+    "redis": "^4.0.1",
+>>>>>>> 5655adf32f80401ccc6f0e1066a0d938e82e3bba
     "uuid": "^8.3.2"
   }
 }
