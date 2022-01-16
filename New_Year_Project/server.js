@@ -1,29 +1,21 @@
-const express = require("express")
+const express = require("express"),
+    app = express(),
+    session = require('express-session')
 const hbs = require("hbs");
-const app = express();
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
+app.use(
+    session({
+        secret: 'you secret key',
+        saveUninitialized: true,
+    })
+)
 
 app.set("view engine", 'hbs') // Поставить движок шаблонизации
 app.set("views", "./templates") // размещение шаблонов
 app.use(express.static('templates'));
 
-users = {
-    "1": {
-        "name": "1231313",
-        "password": "23123"
-    }
-
-}
-games = {
-    "1": {
-        "game": "aloha",
-        "data": "22.12.2022",
-        "price": "500",
-
-    },
-
-}
-
-const urlencodedParser = express.urlencoded({ extended: true });
 
 app.post("/server", urlencodedParser, function(req, res) {
     data = req.body
@@ -33,15 +25,15 @@ app.post("/server", urlencodedParser, function(req, res) {
 
 app.get("/", function(request, response) {
     response.render(__dirname + "/templates/index.hbs")
-
-
+    console.log(req.session.showAd)
+    res.sendStatus(200)
 });
 
 
 app.get("/login", function(request, response) {
-    response.render(__dirname + "/templates/registr.hbs", users)
-    let json = JSON.stringify(users);
-    console.log(users)
+    response.render(__dirname + "/templates/registr.hbs", )
+    req.session.showAd = req.body.showAd
+    res.sendStatus(200)
 
 });
 
@@ -70,9 +62,6 @@ app.get("/game", function(request, response) {
     console.log
 });
 
-
-
-
 app.listen(3000, function() {
-    console.log("server is on")
-});
+    console.log(`Server listens `), 3000
+})
