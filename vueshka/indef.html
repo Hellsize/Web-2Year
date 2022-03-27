@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+<input v-model="username" type="text" placeholder="Name"><br>
+<input  v-model="age" type="text" placeholder="Age"> <br>
+<button v-on:click="addUser"> Create user </button>
+<hr>
+<user-form v-bind:name="user.name" v-for="user in users"
+v-bind:age="user.age"></user-form>
+    </div>
+</body>
+</html>
+<script src="validator.js"></script>

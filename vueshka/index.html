@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+<p>
+    {{text}}
+</p>
+<test-component></test-component>
+<post-component
+ v-for="post in posts" 
+v-bind:head="post.head"
+v-bind:text="post.text"></post-component>
+    </div>
+</body>
+</html>
+<script>
+    
+let PostComponent = { 
+    template:  `<div class ="post">
+         <h2> {{head}} </h2> 
+         <p> {{text}}</p>
+         <button v-on:click="addLike"> Likes! </button> <br>
+         <small> Всего лайков:<b> {{likes}} </b> </small>
+          </div>`,
+          props:{
+              head:String,
+              text: String,
+
+          },
+          data(){
+              return{
+                  likes:0
+              }
+          },methods:{
+              addLike(){
+                  this.likes++
+              }
+          }
+};
+
+let app = Vue.createApp({
+    data(){
+        return{
+            text:"hi",
+            posts: [
+                {head:"My firs post",text:"Я люблю обед"},
+                {head:"My second post",text:"Мне очень уютненько"},
+                {head:"My third post",text:"Мега хорош"},
+            ]
+        }
+    },
+components:{
+    'post-component':PostComponent
+}
+});
+
+
+app.component("test-component",{
+    template: "<h1>{{text}}</h1>",
+    data(){
+        return{
+            text:"hello!"
+        }
+    }
+})
+
+app.mount("#app");
+
+</script>
